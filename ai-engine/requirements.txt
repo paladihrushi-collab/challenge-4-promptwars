@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-openai
+llama-index
+qdrant-client
+crewai
+pydantic
+pydantic-settings
+python-dotenv
