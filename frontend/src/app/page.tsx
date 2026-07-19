@@ -1,3 +1,5 @@
+import AICopilot from "@/components/AICopilot";
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto animate-in fade-in duration-700">
@@ -70,40 +72,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Column - AI Insights stream */}
-        <div className="glass-panel flex flex-col h-[500px] lg:h-auto">
-          <div className="p-4 border-b border-white/5">
-            <h3 className="font-semibold text-white flex items-center gap-2">
-              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              AI Analysis Stream
-            </h3>
-          </div>
-          
-          <div className="flex-1 p-4 overflow-y-auto space-y-4">
-            <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xs font-bold text-blue-400">TACTICAL SHIFT</span>
-                <span className="text-xs text-zinc-500">Just now</span>
-              </div>
-              <p className="text-sm text-zinc-300">LangGraph Agent detected a shift to a defensive formation in Sector 2.</p>
-            </div>
-
-            <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xs font-bold text-red-400">ANOMALY DETECTED</span>
-                <span className="text-xs text-zinc-500">2 min ago</span>
-              </div>
-              <p className="text-sm text-zinc-300">Unusual crowd density buildup detected at Gate 4.</p>
-            </div>
-
-            <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
-              <div className="flex justify-between items-start mb-1">
-                <span className="text-xs font-bold text-emerald-400">SIMULATION READY</span>
-                <span className="text-xs text-zinc-500">5 min ago</span>
-              </div>
-              <p className="text-sm text-zinc-300">Predictive model suggests 85% probability of successful clear based on current player velocities.</p>
-            </div>
-          </div>
+        {/* Right Column - AI Copilot stream */}
+        <div className="glass-panel flex flex-col h-[500px] lg:h-[600px] overflow-hidden">
+          <AICopilot />
         </div>
 
       </div>
