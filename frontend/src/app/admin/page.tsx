@@ -30,7 +30,10 @@ export default function AdminDashboard() {
   useEffect(() => {
     // Generate a random client ID for WebSocket
     const clientId = Math.random().toString(36).substring(7);
-    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000";
+    let wsUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000";
+    if (wsUrl && !wsUrl.startsWith('ws')) {
+      wsUrl = `wss://${wsUrl}`;
+    }
     const ws = new WebSocket(`${wsUrl}/ws/${clientId}`);
 
     ws.onopen = () => setWsConnected(true);

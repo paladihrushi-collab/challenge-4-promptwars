@@ -27,7 +27,10 @@ export default function AICopilot() {
 
     try {
       // Connect to our AI Engine /query endpoint
-      const aiUrl = process.env.NEXT_PUBLIC_AI_ENGINE_URL || 'http://localhost:8001';
+      let aiUrl = process.env.NEXT_PUBLIC_AI_ENGINE_URL || 'http://localhost:8001';
+      if (aiUrl && !aiUrl.startsWith('http')) {
+        aiUrl = `https://${aiUrl}`;
+      }
       const res = await fetch(`${aiUrl}/query?query=${encodeURIComponent(userMsg)}`, {
         method: 'POST'
       });
