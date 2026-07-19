@@ -1,65 +1,112 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col gap-6 max-w-7xl mx-auto animate-in fade-in duration-700">
+      
+      {/* Header section */}
+      <header className="flex justify-between items-center pb-4 border-b border-white/10">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight text-white">Overview</h2>
+          <p className="text-zinc-400 mt-1">Live stadium analytics and computer vision monitoring.</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex items-center gap-3">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span className="text-sm font-medium text-emerald-400">System Online</span>
         </div>
-      </main>
+      </header>
+
+      {/* Top Metrics Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="glass-panel p-5">
+          <p className="text-sm font-medium text-zinc-400 mb-1">Active Cameras</p>
+          <p className="metric-value">24<span className="text-lg text-zinc-500 ml-1">/24</span></p>
+        </div>
+        <div className="glass-panel p-5">
+          <p className="text-sm font-medium text-zinc-400 mb-1">Detected Persons</p>
+          <p className="metric-value">1,482</p>
+        </div>
+        <div className="glass-panel p-5">
+          <p className="text-sm font-medium text-zinc-400 mb-1">AI Events Processed</p>
+          <p className="metric-value">8,391</p>
+        </div>
+        <div className="glass-panel p-5">
+          <p className="text-sm font-medium text-zinc-400 mb-1">Simulation Accuracy</p>
+          <p className="metric-value text-emerald-400">94.2%</p>
+        </div>
+      </div>
+
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-2">
+        
+        {/* Left Column - Live Feed (Takes up 2 cols on large screens) */}
+        <div className="lg:col-span-2 space-y-6">
+          <div className="glass-panel overflow-hidden">
+            <div className="bg-zinc-900/50 p-4 border-b border-white/5 flex justify-between items-center">
+              <h3 className="font-semibold text-white flex items-center gap-2">
+                <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                Main Stadium Feed
+              </h3>
+              <span className="text-xs px-2 py-1 bg-red-500/20 text-red-400 rounded-full border border-red-500/30">LIVE</span>
+            </div>
+            
+            {/* Fake Video Player Placeholder */}
+            <div className="aspect-video bg-black relative flex items-center justify-center border-y border-white/5">
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
+              
+              {/* CV Bounding Box Mockup */}
+              <div className="absolute top-[30%] left-[40%] w-[15%] h-[25%] border-2 border-cyan-400 bg-cyan-400/10 rounded-sm"></div>
+              <div className="absolute top-[26%] left-[40%] bg-cyan-400 text-black text-[10px] font-bold px-1 rounded-sm">Player: 87%</div>
+
+              <div className="absolute top-[45%] left-[65%] w-[10%] h-[20%] border-2 border-emerald-400 bg-emerald-400/10 rounded-sm"></div>
+              <div className="absolute top-[41%] left-[65%] bg-emerald-400 text-black text-[10px] font-bold px-1 rounded-sm">Ball: 99%</div>
+
+            </div>
+            <div className="p-4 bg-zinc-900/30 text-sm text-zinc-400 flex justify-between">
+              <span>Cam: Sector 4 North</span>
+              <span>Model: YOLOv8-Stadium</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - AI Insights stream */}
+        <div className="glass-panel flex flex-col h-[500px] lg:h-auto">
+          <div className="p-4 border-b border-white/5">
+            <h3 className="font-semibold text-white flex items-center gap-2">
+              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              AI Analysis Stream
+            </h3>
+          </div>
+          
+          <div className="flex-1 p-4 overflow-y-auto space-y-4">
+            <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+              <div className="flex justify-between items-start mb-1">
+                <span className="text-xs font-bold text-blue-400">TACTICAL SHIFT</span>
+                <span className="text-xs text-zinc-500">Just now</span>
+              </div>
+              <p className="text-sm text-zinc-300">LangGraph Agent detected a shift to a defensive formation in Sector 2.</p>
+            </div>
+
+            <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+              <div className="flex justify-between items-start mb-1">
+                <span className="text-xs font-bold text-red-400">ANOMALY DETECTED</span>
+                <span className="text-xs text-zinc-500">2 min ago</span>
+              </div>
+              <p className="text-sm text-zinc-300">Unusual crowd density buildup detected at Gate 4.</p>
+            </div>
+
+            <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+              <div className="flex justify-between items-start mb-1">
+                <span className="text-xs font-bold text-emerald-400">SIMULATION READY</span>
+                <span className="text-xs text-zinc-500">5 min ago</span>
+              </div>
+              <p className="text-sm text-zinc-300">Predictive model suggests 85% probability of successful clear based on current player velocities.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
