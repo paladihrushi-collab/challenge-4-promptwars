@@ -1,7 +1,5 @@
 databases:
   - name: stadiummind-db
-    databaseName: stadiummind
-    user: postgres
     plan: free
     region: oregon
 
